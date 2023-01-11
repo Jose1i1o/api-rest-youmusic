@@ -9,8 +9,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-
-// const port = process.env.SERVER_PORT || process.env.APP_ORIGIN;
 const appOrigin = process.env.APP_ORIGIN;
 const audience = process.env.AUTH0_AUDIENCE;
 const issuer = process.env.AUTH0_ISSUER;
@@ -36,11 +34,19 @@ const checkJwt = jwt({
     algorithms: ["RS256"],
 });
 
+app.get("/", (req, res) => {
+    return res.status(200).json({
+        status: "success",
+        mensaje: "Linked device",
+        data: "Hola Mundo"
+    })
+});
+
 app.get("/api/messages/public-message", (req, res) => {
     return res.status(200).json({
         status: "success",
         mensaje: "Mensaje desde el back de un mensaje público",
-        data: "hoola guapò"
+        data: "Madre mía que de errores"
     })
 });
 
@@ -54,6 +60,3 @@ app.get("/api/messages/protected-message", checkJwt, (req, res) => {
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
-// app.listen(appOrigin, () => console.log(`API Server listening on port ${appOrigin}`));
