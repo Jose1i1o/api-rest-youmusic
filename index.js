@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || APP_ORIGIN;
 const appOrigin = process.env.APP_ORIGIN;
 const audience = process.env.AUTH0_AUDIENCE;
 const issuer = process.env.AUTH0_ISSUER;
