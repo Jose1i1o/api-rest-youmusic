@@ -53,4 +53,4 @@ app.get("/api/messages/protected-message", checkJwt, (req, res) => {
     })
 });
 
-app.listen(port, () => console.log(`API Server listening on port ${port}`));
+app.listen(appOrigin, () => console.log(`API Server listening on port ${port}`));
