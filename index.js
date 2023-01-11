@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 
-const port = process.env.SERVER_PORT || process.env.APP_ORIGIN;
+// const port = process.env.SERVER_PORT || process.env.APP_ORIGIN;
 const appOrigin = process.env.APP_ORIGIN;
 const audience = process.env.AUTH0_AUDIENCE;
 const issuer = process.env.AUTH0_ISSUER;
@@ -52,4 +52,8 @@ app.get("/api/messages/protected-message", checkJwt, (req, res) => {
     })
 });
 
-app.listen(appOrigin, () => console.log(`API Server listening on port ${appOrigin}`));
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+// app.listen(appOrigin, () => console.log(`API Server listening on port ${appOrigin}`));
