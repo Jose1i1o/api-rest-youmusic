@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 
-// const port = process.env.SERVER_PORT || process.env.APP_ORIGIN;
+const port = process.env.SERVER_PORT;
 const appOrigin = process.env.APP_ORIGIN;
 const audience = process.env.AUTH0_AUDIENCE;
 const issuer = process.env.AUTH0_ISSUER;
@@ -56,4 +56,4 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
-// app.listen(appOrigin, () => console.log(`API Server listening on port ${appOrigin}`));
+app.listen(appOrigin, () => console.log(`API Server listening on port ${appOrigin}`));
