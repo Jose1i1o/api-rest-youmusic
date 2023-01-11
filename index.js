@@ -4,7 +4,6 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const { expressjwt: jwt } = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
-const { resolve } = require("path");
 const dotenv = require("dotenv");
 
 dotenv.config();
